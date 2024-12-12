@@ -1,4 +1,4 @@
-package com.bappi.patientmanagementservice;
+package com.bappi.pms;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

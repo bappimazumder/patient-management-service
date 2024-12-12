@@ -1,4 +1,4 @@
-package com.bappi.patientmanagementservice;
+package com.bappi.pms;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
