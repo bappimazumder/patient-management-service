@@ -9,4 +9,5 @@ public class ApiPath {
     public static final String API_CREATE_PATIENT = "/create";
     public static final String API_UPDATE_PATIENT = "/update";
     public static final String API_GET_PATIENT = "/get";
+    public static final String API_GET_ALL_PATIENT = "/getAll";
 }

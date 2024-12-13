@@ -15,5 +15,6 @@ public class PatientInfoDBConstant {
     public static final String CREATED_BY = "CREATED_BY";
     public static final String UPDATED_BY = "UPDATED_BY";
     public static final String UPDATE_DATE = "UPDATE_DATE";
+    public static final String ACTIVE_STATUS = "ACTIVE_STATUS";
 
 }

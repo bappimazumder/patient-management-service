@@ -1,6 +1,7 @@
 package com.bappi.pms.model.entity;
 
 import com.bappi.pms.config.PatientInfoDBConstant;
+import com.bappi.pms.model.enums.Gender;
 import com.bappi.pms.model.enums.PatientType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -31,10 +32,11 @@ public class PatientInfo implements Serializable {
     private String fullName;
 
     @Column(name = PatientInfoDBConstant.AGE)
-    private String age;
+    private Float age;
 
     @Column(name = PatientInfoDBConstant.GENDER)
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @Column(name = PatientInfoDBConstant.CONTACT_NO)
     private String contactNo;
@@ -45,6 +47,9 @@ public class PatientInfo implements Serializable {
     @Column(name = PatientInfoDBConstant.PATIENT_TYPE)
     @Enumerated(EnumType.STRING)
     private PatientType patientType;
+
+    @Column(name = ACTIVE_STATUS)
+    private Boolean activeStatus;
 
     @Column(name = CREATE_DATE)
     private Timestamp createDate = new Timestamp(System.currentTimeMillis());
