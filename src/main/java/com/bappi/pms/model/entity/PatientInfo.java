@@ -13,7 +13,6 @@ import static com.bappi.pms.config.PatientInfoDBConstant.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Getter
 @Setter
 @Entity

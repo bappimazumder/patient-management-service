@@ -1,0 +1,32 @@
+services:
+  # Spring Boot application
+  patient-management:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/patient_management_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
+    depends_on:
+      - db
+    restart: always
+
+  # PostgreSQL database
+  db:
+    container_name: postgresql_container
+    image: postgres:13
+    environment:
+      POSTGRES_DB: patient_management_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - C:\postgres_data:/var/lib/postgresql/data
+    restart: always
+
+
