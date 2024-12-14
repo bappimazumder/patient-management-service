@@ -13,13 +13,13 @@ import java.util.List;
 @Mapper
 public interface PatientInfoMapper {
 
-    PatientInfo map(PatientInfoRequestDto dto);
+    PatientInfo mapDtoToObj(PatientInfoRequestDto dto);
 
-    PatientInfoResponseDto map(PatientInfo obj);
+    PatientInfoResponseDto mapObjToDto(PatientInfo obj);
 
-    default Page<PatientInfoResponseDto> map(Page<PatientInfo> page) {
+   default Page<PatientInfoResponseDto> map(Page<PatientInfo> page) {
         List<PatientInfoResponseDto> responseDtos = page.getContent().stream()
-                .map(this::map)
+                .map(this::mapObjToDto)
                 .toList();
 
         return new PageImpl<>(responseDtos, page.getPageable(), page.getTotalElements());

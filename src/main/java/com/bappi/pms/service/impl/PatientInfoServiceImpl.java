@@ -18,9 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import static com.bappi.pms.config.Constant.PATIENT_CODE_PREFIX;
 
@@ -40,8 +38,9 @@ public class PatientInfoServiceImpl implements PatientInfoService {
 
     @Override
     public PatientInfoResponseDto save(PatientInfoRequestDto requestDto) {
-        PatientInfoResponseDto responseDto = new PatientInfoResponseDto();
-        PatientInfo patientInfo = objectMapper.map(requestDto);
+        // Convert requestDto to PatientInfo
+        PatientInfo patientInfo = objectMapper.mapDtoToObj(requestDto);
+        log.debug("Mapped requestDto to patientInfo: {}", patientInfo); // Check mapping
 
         int uniqueId = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
         String patientCode = PATIENT_CODE_PREFIX + uniqueId;
@@ -49,12 +48,20 @@ public class PatientInfoServiceImpl implements PatientInfoService {
         patientInfo.setActiveStatus(true);
         patientInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
         patientInfo.setCreateBy(1L);
-        return  objectMapper.map(repository.save(patientInfo));
+
+        // Save PatientInfo and map back to responseDto
+        PatientInfo savedPatientInfo = repository.save(patientInfo);
+        log.debug("Saved patientInfo: {}", savedPatientInfo);
+
+        PatientInfoResponseDto responseDto = objectMapper.mapObjToDto(savedPatientInfo);
+        log.debug("Mapped saved patientInfo to responseDto: {}", responseDto);
+
+        return responseDto;
     }
 
     @Override
     public PatientInfoResponseDto update(PatientInfoRequestDto requestDto) {
-        PatientInfoResponseDto responseDto = new PatientInfoResponseDto();
+        PatientInfoResponseDto responseDto = null;
         String code = requestDto.getCode();
         log.debug("Update Patient Info details by code {} " , code);
 
@@ -75,7 +82,7 @@ public class PatientInfoServiceImpl implements PatientInfoService {
 
         PatientInfo savedObj = repository.save(existingPatient);
 
-        return  objectMapper.map(repository.save(savedObj));
+        return  objectMapper.mapObjToDto(repository.save(savedObj));
 
     }
 
@@ -84,13 +91,13 @@ public class PatientInfoServiceImpl implements PatientInfoService {
         log.debug("Get Patient Info details by code {} " , code);
         PatientInfoResponseDto responseDto = new PatientInfoResponseDto();
 
-        PatientInfo tripInfo = repository.findByCode(code);
+        PatientInfo patientInfo = repository.findByCode(code);
 
-        if(tripInfo == null){
+        if(patientInfo == null){
             log.error("Patient code is invalid");
             return responseDto;
         }
-        return objectMapper.map(tripInfo);
+        return objectMapper.mapObjToDto(patientInfo);
     }
 
     @Override
@@ -111,4 +118,5 @@ public class PatientInfoServiceImpl implements PatientInfoService {
 
         return objectMapper.map(patientInfoPages);
     }
+
 }
