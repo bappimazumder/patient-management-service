@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "c16aabc3-27ba-421d-9e56-fb85359522e2",
+		"name": "Patient-Management-API-Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9436090",
+		"_collection_link": "https://lunar-eclipse-761053.postman.co/workspace/Team-Workspace~4c33cdca-8dd6-4d97-8e73-f93f4cc8a9a3/collection/9436090-c16aabc3-27ba-421d-9e56-fb85359522e2?action=share&source=collection_link&creator=9436090"
+	},
+	"item": [
+		{
+			"name": "Create Patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\":\"Jewel 3\",\r\n    \"age\":23,\r\n    \"gender\":\"MALE\",\r\n    \"contactNo\":\"01816904616\",\r\n    \"address\":\"Golden Street, Dhaka\",\r\n    \"patientType\": \"NON_EMERGENCY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8085/api/v1/pms/patient/create"
+			},
+			"response": [
+				{
+					"name": "Create Patient Success Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Jewel 3\",\r\n    \"age\":23,\r\n    \"gender\":\"MALE\",\r\n    \"contactNo\":\"01816904616\",\r\n    \"address\":\"Golden Street, Dhaka\",\r\n    \"patientType\": \"NON_EMERGENCY\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8085/api/v1/pms/patient/create"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Dec 2024 02:47:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Patient created successfully\",\n    \"data\": {\n        \"fullName\": \"Jewel 3\",\n        \"code\": \"PAT-1734490059\",\n        \"age\": 23,\n        \"gender\": \"MALE\",\n        \"contactNo\": \"01816904616\",\n        \"address\": \"Golden Street, Dhaka\",\n        \"patientType\": \"NON_EMERGENCY\",\n        \"activeStatus\": true,\n        \"createDate\": 1734490059004\n    },\n    \"metadata\": null\n}"
+				},
+				{
+					"name": "Create Patient Failed Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Jewel 3\",\r\n    \"age\":23,\r\n    \"gender\":\"MALE2\",\r\n    \"contactNo\":\"01816904616\",\r\n    \"address\":\"Golden Street, Dhaka\",\r\n    \"patientType\": \"NON_EMERGENCY\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8085/api/v1/pms/patient/create"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Dec 2024 02:48:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"Invalid patient gender\",\n    \"data\": null,\n    \"metadata\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Patient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\":\"Jewel 2\",\r\n    \"code\":\"PAT-1734077244\",\r\n    \"age\":24,\r\n    \"gender\":\"MALE\",\r\n    \"contactNo\":\"01816904616\",\r\n    \"address\":\"Golden Street, Dhaka\",\r\n    \"patientType\": \"NON_EMERGENCY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8085/api/v1/pms/patient/update"
+			},
+			"response": [
+				{
+					"name": "Update Patient Success Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Jewel 2\",\r\n    \"code\":\"PAT-1734077244\",\r\n    \"age\":24,\r\n    \"gender\":\"MALE\",\r\n    \"contactNo\":\"01816904616\",\r\n    \"address\":\"Golden Street, Dhaka\",\r\n    \"patientType\": \"NON_EMERGENCY\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8085/api/v1/pms/patient/update"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Dec 2024 02:50:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Patient updated successfully\",\n    \"data\": {\n        \"fullName\": \"Jewel 2\",\n        \"code\": \"PAT-1734077244\",\n        \"age\": 24,\n        \"gender\": \"MALE\",\n        \"contactNo\": \"01816904616\",\n        \"address\": \"Golden Street, Dhaka\",\n        \"patientType\": \"NON_EMERGENCY\",\n        \"activeStatus\": true,\n        \"createDate\": 1734077244559\n    },\n    \"metadata\": null\n}"
+				},
+				{
+					"name": "Update Patient Failed Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Jewel 2\",\r\n    \"code\":\"PAT-1734077244\",\r\n    \"age\":24,\r\n    \"gender\":\"MALE\",\r\n    \"contactNo\":\"01816904616\",\r\n    \"address\":\"Golden Street, Dhaka\",\r\n    \"patientType\": \"NON_EMERGENCY2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8085/api/v1/pms/patient/update"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Dec 2024 02:51:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"Invalid patient type\",\n    \"data\": null,\n    \"metadata\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Patient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/pms/patient/get?code=PAT-1734077245",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"pms",
+						"patient",
+						"get"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "PAT-1734077245"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Patient Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/pms/patient/get?code=PAT-1734077244",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"pms",
+								"patient",
+								"get"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "PAT-1734077244"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Dec 2024 14:19:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Patient retrieved successfully\",\n    \"data\": {\n        \"fullName\": \"Jewel 2\",\n        \"code\": \"PAT-1734077244\",\n        \"age\": 24,\n        \"gender\": \"MALE\",\n        \"contactNo\": \"01816904616\",\n        \"address\": \"Golden Street, Dhaka\",\n        \"patientType\": \"NON_EMERGENCY\",\n        \"activeStatus\": true,\n        \"createDate\": 1734077244559\n    },\n    \"metadata\": null\n}"
+				},
+				{
+					"name": "Get Patient Failed Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/pms/patient/get?code=PAT-1734077245",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"pms",
+								"patient",
+								"get"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "PAT-1734077245"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Dec 2024 02:53:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"Patient retrieved failed, invalid patient code\",\n    \"data\": null,\n    \"metadata\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Patient",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/pms/patient/getAll?page=1&size=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"pms",
+						"patient",
+						"getAll"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Patient Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/pms/patient/getAll?page=1&size=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"pms",
+								"patient",
+								"getAll"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Dec 2024 02:54:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Patient retrieved successfully\",\n    \"data\": [\n        {\n            \"fullName\": \"Jewel 3\",\n            \"code\": \"PAT-1734490059\",\n            \"age\": 23,\n            \"gender\": \"MALE\",\n            \"contactNo\": \"01816904616\",\n            \"address\": \"Golden Street, Dhaka\",\n            \"patientType\": \"NON_EMERGENCY\",\n            \"activeStatus\": true,\n            \"createDate\": 1734490059004\n        },\n        {\n            \"fullName\": \"Jewel 3\",\n            \"code\": \"PAT-1734161793\",\n            \"age\": 23,\n            \"gender\": \"MALE\",\n            \"contactNo\": \"01816904616\",\n            \"address\": \"Golden Street, Dhaka\",\n            \"patientType\": \"NON_EMERGENCY\",\n            \"activeStatus\": true,\n            \"createDate\": 1734161793386\n        },\n        {\n            \"fullName\": \"Jewel 3\",\n            \"code\": \"PAT-1734100431\",\n            \"age\": 23,\n            \"gender\": \"MALE\",\n            \"contactNo\": \"01816904616\",\n            \"address\": \"Golden Street, Dhaka\",\n            \"patientType\": \"NON_EMERGENCY\",\n            \"activeStatus\": true,\n            \"createDate\": 1734100431500\n        }\n    ],\n    \"metadata\": {\n        \"totalItems\": 4,\n        \"totalPages\": 2,\n        \"currentPage\": 0\n    }\n}"
+				}
+			]
+		}
+	]
+}

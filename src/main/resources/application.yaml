@@ -7,12 +7,12 @@ spring:
     name: patient-management-service
 
   datasource:
-    url: jdbc:postgresql://db:5432/patient_management_db
+    url: jdbc:postgresql://localhost:5432/patient_management_db
     username: postgres
-    password: postgres
+    password: 123
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     open-in-view: false
     properties:
       hibernate:

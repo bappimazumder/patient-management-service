@@ -87,7 +87,7 @@ public class PatientInfoController {
         }
 
         // Return success response
-        return ResponseEntity.ok(new ApiResponse<>(SUCCESS_STATUS, GET_SUCCESSFULLY_MESSAGE, responseDto, null));
+        return buildSuccessResponse(GET_SUCCESSFULLY_MESSAGE, responseDto);
     }
 
     @GetMapping(value = API_GET_ALL_PATIENT)
